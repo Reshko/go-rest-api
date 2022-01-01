@@ -67,7 +67,7 @@ func deleteBookById(c *gin.Context) {
 
 	for index, value := range books {
 		if value.ID == id {
-			books = append(books[:index], books[:index+1]...)
+			books = append(books[:index], books[index+1:]...)
 			c.IndentedJSON(http.StatusOK, books)
 			return
 		}
